@@ -1,12 +1,19 @@
-import Header from "./components/Header.tsx";
-import PeopleContainer from "./components/PeopleContainer.tsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import PeopleContainer from "./components/PeopleContainer";
+import Homework from "./components/HomeworkPage";
 
 export function App() {
   return (
-    <div className="bg-black w-full h-full">
-      <Header />
-      <PeopleContainer />
-    </div>
+    <Router>
+      <div className="bg-black w-full h-full">
+        <Header />
+        <Routes>
+          <Route path="/" element={<PeopleContainer />} />
+          <Route path="/homework" element={<Homework />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
